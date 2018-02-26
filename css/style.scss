@@ -1,6 +1,52 @@
 $width: 1050;
 $container-width: $width + px;
 
+@mixin animate-shiny($width, $height) {
+	a {
+		display: inline-block;
+		vertical-align: bottom;
+		overflow: hidden;
+		position: relative;
+		&:before {
+			content: '';
+			width: $width;
+			height: $height;
+			background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 100%);
+			animation: shiny 2s infinite;
+			transform: skew(-25deg);
+			position: absolute;
+			top: 0;
+		}
+		&:hover {
+			opacity: 0.9;
+		}
+		img {
+			vertical-align: bottom;
+		}
+	}
+}
+
+@-webkit-keyframes shiny {
+	0% { left: -30%; }
+	100% { left: 120%; }
+}
+@-moz-keyframes shiny {
+	0% { left: -30%; }
+	100% { left: 120%; }
+}
+@-ms-keyframes shiny {
+	0% { left: -30%; }
+	100% { left: 120%; }
+}
+@-o-keyframes shiny {
+	0% { left: -30%; }
+	100% { left: 120%; }
+}
+@keyframes shiny {
+	0% { left: -30%; }
+	100% { left: 120%; }
+}
+
 * {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -9,6 +55,11 @@ $container-width: $width + px;
 body {
 	font-size: 14px;
 	color: #000;
+}
+ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
 }
 .container {
 	width: $container-width;
@@ -20,7 +71,38 @@ body {
 	display: block;
 }
 .img-center {
+	display: block;
 	margin: 0 auto;
+}
+
+.countdown {
+	background-color: #252872;
+	width: 710px;
+	margin: 0 auto;
+	position: fixed;
+	left: 0;
+	right: 0;
+	padding-bottom: 10px;
+	z-index: 9;
+}
+#CP {
+	color: #fff;
+	font-family: serif;
+	line-height: 0.8;
+	letter-spacing: 3px;
+	text-align: center;
+	font-weight: 900;
+	padding-top: 4px;
+	.after {
+		font-size: 28px;
+		letter-spacing: 0;
+	} 
+	.jikan, .hun, .byou {
+		font-size: 30px;
+	}
+	.hou, .min, .sec {
+		font-size: 36px;
+	}
 }
 
 .bg {
@@ -32,12 +114,13 @@ body {
 		background: url(../img/cta.png) no-repeat center;
 		height: 682px;
 		position: relative;
-		.btn {
+		.absolute {
 			position: absolute;
 			bottom: 37px;
 			left: 0;
 			right: 0;
 			text-align: center;
+			@include animate-shiny(221px, 221px);
 		}
 	}
 	.stock-appeal {
@@ -55,5 +138,19 @@ body {
 			text-align: center;
 			margin-top: 0;
 		}
+		.list {
+			margin-bottom: 15px;
+		}
 	}
+}
+
+.float-btn {
+	background: rgba(0, 0, 0, 0.3);
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 9;
+	text-align: center;
+	@include animate-shiny(221px, 91px);
 }

@@ -103,13 +103,13 @@ ul {
 }
 
 .bg {
-  background: url(../img/bg.jpg) no-repeat center top;
+  background: url(../../img/pc/bg.jpg) no-repeat center top;
   background-size: cover;
   background-attachment: fixed;
   padding: 30px 0 45px 0;
 }
 .bg .cta {
-  background: url(../img/cta.png) no-repeat center;
+  background: url(../../img/pc/cta.png) no-repeat center;
   height: 682px;
   position: relative;
 }
